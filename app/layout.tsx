@@ -19,7 +19,61 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Loki — Architect of Chaos",
-  description: "A cinematic journey into the real mythology of the Trickster.",
+  description:
+    "A cinematic journey into the real mythology of the Trickster God. Discover the Norse myths, family tree, and legendary tales of Loki.",
+  keywords: [
+    "Loki",
+    "Norse Mythology",
+    "Trickster God",
+    "Ragnarok",
+    "Norse Gods",
+    "Viking Mythology",
+    "Asgard",
+    "Odin",
+    "Thor",
+    "Fenrir",
+    "Jormungandr",
+    "Hel",
+  ],
+  openGraph: {
+    title: "Loki — Architect of Chaos",
+    description:
+      "A cinematic journey into the real mythology of the Trickster God. Discover the Norse myths, family tree, and legendary tales of Loki.",
+    url: "https://loki-history.vercel.app",
+    siteName: "Loki — Architect of Chaos",
+    images: [
+      {
+        url: "/images/hero-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Loki — Architect of Chaos",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Loki — Architect of Chaos",
+    description:
+      "A cinematic journey into the real mythology of the Trickster God.",
+    images: ["/images/hero-image.jpeg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
