@@ -55,7 +55,7 @@ export const CustomCursor: React.FC = () => {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-screen"
+      className="fixed top-0 left-0 pointer-events-none z-[9999]"
       style={{
         willChange: "transform",
       }}
@@ -68,9 +68,9 @@ export const CustomCursor: React.FC = () => {
             isPointer ? "opacity-0 scale-0" : "opacity-100 scale-100"
           }`}
         >
-          <div className="w-2.5 h-2.5 bg-loki-gold rounded-full shadow-[0_0_15px_rgba(212,175,55,0.8)] animate-pulse-slow" />
+          <div className="w-4 h-4 bg-loki-gold rounded-full border-2 border-black/40 shadow-[0_0_20px_rgba(212,175,55,1),0_0_40px_rgba(212,175,55,0.6)] animate-pulse-slow" />
           {/* Faint Ring */}
-          <div className="absolute inset-[-4px] border border-loki-gold/30 rounded-full scale-110" />
+          <div className="absolute inset-[-6px] border-2 border-loki-gold/50 rounded-full scale-110" />
         </div>
 
         {/* State 2: Serpent & Runes (Interactive) */}

@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ imageUrl }) => {
           Moves slowly (0.5 speed) to simulate distance.
       */}
       <div
-        className="absolute inset-0 z-0 w-full h-[120%] bg-cover bg-center will-change-transform"
+        className="absolute inset-0 z-0 w-full h-[120%] bg-cover bg-[position:65%_center] md:bg-center will-change-transform"
         style={{
           backgroundImage: `url(${imageUrl})`,
           transform: `translateY(${offset * 0.5}px) scale(1.1)`,
