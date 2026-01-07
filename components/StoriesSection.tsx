@@ -63,9 +63,9 @@ const StoryItem: React.FC<{
           const distance = elementCenter - center;
 
           // Move image slightly against the scroll direction (parallax effect)
-          // 0.15 is the speed factor
-          const translateY = distance * 0.15;
-          imageRef.current.style.transform = `scale(1.2) translateY(${translateY}px)`;
+          // 0.08 is the speed factor (reduced for smoother effect)
+          const translateY = Math.max(-50, Math.min(50, distance * 0.08));
+          imageRef.current.style.transform = `scale(1.4) translateY(${translateY}px)`;
         }
       }
       animationFrameId = requestAnimationFrame(animateParallax);
@@ -96,7 +96,7 @@ const StoryItem: React.FC<{
                 src={imageUrl}
                 alt={story.title}
                 className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 will-change-transform"
-                style={{ transform: "scale(1.2)" }}
+                style={{ transform: "scale(1.4)" }}
               />
             ) : (
               <div className="w-full h-full bg-loki-dark flex items-center justify-center">
