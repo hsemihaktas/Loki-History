@@ -96,7 +96,7 @@ export const Hero: React.FC<HeroProps> = ({ imageUrl }) => {
           </h1>
         </div>
         <p className="font-sans text-loki-stone text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-          Beyond the villainy lies the philosophy. Discover the Greek
+          Beyond the villainy lies the philosophy. Discover the Norse
           interpretation of the God of Mischief, where chaos is the prerequisite
           for transformation.
         </p>
