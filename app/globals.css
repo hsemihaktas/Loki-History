@@ -1,26 +1,131 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --color-loki-gold: #d4af37;
+  --color-loki-dark: #0b0f15;
+  --color-loki-teal: #112d32;
+  --color-loki-accent: #254e58;
+  --color-loki-stone: #889299;
+
+  /* Font Families are handled by next/font/google in layout.tsx, mapping to these variables if needed, 
+     but Tailwind 4 detects classes. We'll map standard names to be safe. */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria,
+    "Times New Roman", Times, serif;
+  --font-display: var(--font-cinzel), ui-serif, Georgia, serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-loki-gold: var(--color-loki-gold);
+  --color-loki-dark: var(--color-loki-dark);
+  --color-loki-teal: var(--color-loki-teal);
+  --color-loki-accent: var(--color-loki-accent);
+  --color-loki-stone: var(--color-loki-stone);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-lightning: lightning 5s linear infinite;
+  --animate-rain: rain 0.5s linear infinite;
+  --animate-heave: heave 8s ease-in-out infinite;
+  --animate-ember: ember 4s linear infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes lightning {
+    0%,
+    90%,
+    100% {
+      opacity: 0;
+    }
+    92% {
+      opacity: 0.1;
+    }
+    93% {
+      opacity: 0;
+    }
+    94% {
+      opacity: 0.3;
+    }
+    96% {
+      opacity: 0;
+    }
+  }
+  @keyframes rain {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 20% 100%;
+    }
+  }
+  @keyframes heave {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(1deg);
+    }
+  }
+  @keyframes ember {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-150px) scale(0);
+      opacity: 0;
+    }
   }
 }
 
+/* Global Styles */
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-loki-dark);
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-loki-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-loki-accent);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-loki-gold);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.rain-texture {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 1px 100px;
 }
