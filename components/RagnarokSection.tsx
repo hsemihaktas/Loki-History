@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 interface Ember {
@@ -61,10 +62,15 @@ export const RagnarokSection: React.FC<RagnarokSectionProps> = ({
           {/* 4. Ship Container with Heaving Animation */}
           <div className="relative w-full h-full animate-heave origin-bottom">
             {sceneNaglfar ? (
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-[20s] ease-linear scale-110 group-hover:scale-125"
-                style={{ backgroundImage: `url(${sceneNaglfar})` }}
-              />
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  src={sceneNaglfar}
+                  alt="Naglfar Ship"
+                  fill
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                  className="object-cover transition-transform duration-[20s] ease-linear scale-110 group-hover:scale-125"
+                />
+              </div>
             ) : (
               <div className="absolute inset-0 bg-loki-dark animate-pulse" />
             )}

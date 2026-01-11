@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 
 interface HeroProps {
@@ -34,12 +35,19 @@ export const Hero: React.FC<HeroProps> = ({ imageUrl }) => {
           Moves slowly (0.5 speed) to simulate distance.
       */}
       <div
-        className="absolute inset-0 z-0 w-full h-[120%] bg-cover bg-[position:65%_center] md:bg-center will-change-transform"
+        className="absolute inset-0 z-0 w-full h-[120%] will-change-transform"
         style={{
-          backgroundImage: `url(${imageUrl})`,
           transform: `translateY(${offset * 0.5}px) scale(1.1)`,
         }}
       >
+        <Image
+          src={imageUrl}
+          alt="Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[65%_center] md:object-center"
+        />
         {/* Darkening overlay for contrast */}
         <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
       </div>

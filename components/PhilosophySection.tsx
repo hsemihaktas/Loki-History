@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { Wind, Brain, Flame } from "lucide-react";
 
@@ -62,15 +63,20 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({
           className="relative aspect-[3/4] md:aspect-square bg-loki-accent/5 overflow-hidden flex items-center justify-center group border border-white/5"
         >
           {philosophyImage ? (
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
-              style={{ backgroundImage: `url(${philosophyImage})` }}
-            />
+            <div className="absolute inset-0 overflow-hidden">
+              <Image
+                src={philosophyImage}
+                alt="Philosophy"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </div>
           ) : (
             <div className="animate-pulse bg-loki-dark/50 w-full h-full" />
           )}
 
-          <div className="absolute bottom-0 left-0 p-8 pointer-events-none">
+          <div className="absolute bottom-0 left-0 p-8 pointer-events-none z-10">
             <span className="font-serif text-6xl text-loki-gold/20 block absolute -top-10 left-4">
               I
             </span>

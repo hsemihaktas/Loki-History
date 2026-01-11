@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 interface ObserverBackgroundProps {
   imageUrl: string;
@@ -24,12 +25,16 @@ export const ObserverBackground: React.FC<ObserverBackgroundProps> = ({
         })`,
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-l from-transparent to-loki-dark" />
-      <img
-        src={imageUrl}
-        alt="Loki Watching"
-        className="w-full h-full object-cover object-left mask-image-gradient"
-      />
+      <div className="absolute inset-0 bg-gradient-to-l from-transparent to-loki-dark z-10" />
+      <div className="relative w-full h-full">
+        <Image
+          src={imageUrl}
+          alt="Loki Watching"
+          fill
+          sizes="50vw"
+          className="object-cover object-left mask-image-gradient"
+        />
+      </div>
     </div>
   );
 };

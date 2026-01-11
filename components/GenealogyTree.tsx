@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { FamilyNode, FamilyConnection } from "@/types";
 
 interface GenealogyTreeProps {
@@ -217,11 +218,15 @@ export const GenealogyTree: React.FC<GenealogyTreeProps> = ({
             {/* Node Image */}
             <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-loki-gold/20 group-hover:border-loki-gold transition-colors duration-300 bg-black shadow-[0_0_15px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)]">
               <div className="absolute inset-0 bg-loki-gold/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-              <img
-                src={imageUrl}
-                alt=""
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100 text-transparent"
-              />
+              {imageUrl && (
+                <Image
+                  src={imageUrl}
+                  alt={node.name}
+                  fill
+                  sizes="(max-width: 768px) 64px, 96px"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100"
+                />
+              )}
 
               {/* Loading State Placeholder */}
               {!imageUrl && (

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Artifact } from "@/types";
 import { Reveal } from "./Reveal";
 
@@ -71,10 +72,12 @@ export const ArtifactsSection: React.FC<ArtifactsSectionProps> = ({
                   {/* Image Frame */}
                   <div className="relative aspect-[3/4] overflow-hidden mb-6 bg-black">
                     {imageUrl ? (
-                      <img
+                      <Image
                         src={imageUrl}
                         alt={artifact.name}
-                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-[#050505]">

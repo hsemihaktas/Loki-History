@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import Image from "next/image";
 import { Story } from "@/types";
 import { Reveal } from "./Reveal";
 
@@ -91,11 +92,13 @@ const StoryItem: React.FC<{
             <div className="absolute inset-0 bg-loki-gold/10 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
             {imageUrl ? (
-              <img
+              <Image
                 ref={imageRef}
                 src={imageUrl}
                 alt={story.title}
-                className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 will-change-transform"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 will-change-transform"
                 style={{ transform: "scale(1.4)" }}
               />
             ) : (

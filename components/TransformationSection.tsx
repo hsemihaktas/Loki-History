@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 interface TransformationImages {
@@ -58,10 +59,12 @@ export const TransformationSection: React.FC<TransformationSectionProps> = ({
             <div className="absolute -inset-4 border border-loki-stone/20 -rotate-3 z-20 pointer-events-none transition-transform duration-700 group-hover:-rotate-6" />
 
             {images.transformation ? (
-              <img
+              <Image
                 src={images.transformation}
                 alt="Abstract Transformation"
-                className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-1000"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-1000"
               />
             ) : (
               <div className="w-full h-full bg-loki-dark animate-pulse" />
@@ -99,10 +102,12 @@ export const TransformationSection: React.FC<TransformationSectionProps> = ({
             >
               <div className="w-20 h-20 shrink-0 rounded-full overflow-hidden border border-loki-gold/20 relative">
                 {item.img ? (
-                  <img
+                  <Image
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    fill
+                    sizes="80px"
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 ) : (
                   <div className="w-full h-full bg-loki-dark animate-pulse" />
